@@ -1,4 +1,4 @@
-package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller;
+package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller.backoffice;
 
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Exception.ResourceNotFoundException;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.bd.Empleado;

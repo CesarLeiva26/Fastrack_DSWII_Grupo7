@@ -1,4 +1,4 @@
-package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller;
+package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller.frontoffice;
 
 
 import io.jsonwebtoken.Jwts;

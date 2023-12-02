@@ -1,4 +1,4 @@
-package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller;
+package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller.backoffice;
 
 
 import lombok.AllArgsConstructor;
@@ -7,9 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Exception.ResourceNotFoundException;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.bd.Locales;
+import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.dto.DtoEntity;
+import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.dto.LocalesDto;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Service.LocalesService;
+import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Util.DtoUtil;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @RestController
@@ -68,5 +73,18 @@ public class LocalesController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(locales, HttpStatus.OK);
+    }
+
+    @GetMapping("/dto")
+    public ResponseEntity<List<DtoEntity>> listarLocales(){
+        List<DtoEntity> localesList = new ArrayList<>();
+        localesList = localesService.listaLocales()
+                .stream()
+                .map(local -> new DtoUtil().convertirADto(local, new LocalesDto()))
+                .collect(Collectors.toList());
+        if(localesList.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return  new ResponseEntity<>(localesList, HttpStatus.OK);
     }
 }
