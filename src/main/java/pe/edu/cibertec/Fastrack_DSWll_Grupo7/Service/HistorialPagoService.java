@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class HistorialPagoService {
@@ -17,5 +19,9 @@ public class HistorialPagoService {
     @Transactional
     public HistorialPago guardarHistorialPago(HistorialPago historialPago) {
         return historialPagoRepository.save(historialPago);
+    }
+
+    public List<HistorialPago> listarPagos(){
+        return historialPagoRepository.findAll();
     }
 }

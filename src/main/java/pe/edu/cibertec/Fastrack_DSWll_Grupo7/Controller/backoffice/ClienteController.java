@@ -1,4 +1,4 @@
-package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller;
+package pe.edu.cibertec.Fastrack_DSWll_Grupo7.Controller.backoffice;
 
 
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Exception.ResourceNotFoundException;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.bd.Cliente;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.bd.HistorialPago;
+
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Model.request.ClienteRequest;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Service.ClienteService;
 import pe.edu.cibertec.Fastrack_DSWll_Grupo7.Service.HistorialPagoService;
@@ -85,5 +86,4 @@ public class ClienteController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error en la transacción: " + e.getMessage());
         }
     }
-
 }
